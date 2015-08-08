@@ -1029,7 +1029,7 @@ function! s:Commit(args, ...) abort
       else
         let command = 'env GIT_EDITOR=false '
       endif
-      let command .= repo.git_command('commit').' '.a:args
+      let command .= repo.git_command('commit').' -v '.a:args
       if &shell =~# 'csh'
         noautocmd silent execute '!('.command.' > '.outfile.') >& '.errorfile
       elseif a:args =~# '\%(^\| \)-\%(-interactive\|p\|-patch\)\>'
